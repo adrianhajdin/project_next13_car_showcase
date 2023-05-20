@@ -29,11 +29,7 @@ const Filter = ({ title, options }: FilterProps) => {
     const lowercaseTitleName = title.toLowerCase();
     const lowercaseSelectedItem = selectedItem.toLowerCase();
 
-    if (updatedParams.has(lowercaseTitleName)) {
-      updatedParams.set(lowercaseTitleName, lowercaseSelectedItem);
-    } else {
-      updatedParams.append(lowercaseTitleName, lowercaseSelectedItem);
-    }
+    updatedParams.set(lowercaseTitleName, lowercaseSelectedItem);
 
     const newPathname = `${
       window.location.pathname

@@ -14,11 +14,7 @@ const Pagination = ({ pageNumber = 1 }: PaginationProps) => {
     const updatedParams = new URLSearchParams(searchParams.toString());
     const newLimit = (pageNumber + (type === "prev" ? -1 : 1)) * 10;
 
-    if (updatedParams.has("limit")) {
-      updatedParams.set("limit", `${newLimit}`);
-    } else {
-      updatedParams.append("limit", `${newLimit}`);
-    }
+    updatedParams.set("limit", `${newLimit}`);
 
     const newPathname = `${
       window.location.pathname
