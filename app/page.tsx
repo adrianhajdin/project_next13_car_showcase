@@ -1,5 +1,6 @@
 import CarCard from "@components/CarCard";
 import Filter from "@components/Filter";
+import Pagination from "@components/Pagination";
 import { manufacturers, yearsOfProduction } from "@constants";
 
 interface FilterProps {
@@ -39,6 +40,7 @@ export default async function Home({ params, searchParams }) {
     manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || 2022,
     fuel: searchParams.fuel || "",
+    limit: searchParams.limit || 10,
   });
 
   console.log(params, searchParams);
@@ -79,6 +81,8 @@ export default async function Home({ params, searchParams }) {
             />
           ))}
         </div>
+
+        <Pagination pageNumber={(searchParams.limit || 10) / 10} />
       </section>
     </main>
   );
