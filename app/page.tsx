@@ -1,6 +1,7 @@
 import CarCard from "@components/CarCard";
 import Filter from "@components/Filter";
 import Pagination from "@components/Pagination";
+import SearchBar from "@components/Searchbar";
 import { manufacturers, yearsOfProduction } from "@constants";
 
 interface FilterProps {
@@ -47,6 +48,8 @@ export default async function Home({ params, searchParams }) {
 
   return (
     <main>
+      <SearchBar />
+
       <div className='flex max-md:flex-col md:justify-between max-md:items-start w-full pt-16'>
         <div className='flex flex-col items-start justify-start gap-y-2.5 text-black-400'>
           <h1 className='text-4xl font-extrabold'>Car Catalogue</h1>
