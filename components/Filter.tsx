@@ -68,7 +68,7 @@ const Filter = ({ title, options }: FilterProps) => {
 
       {openModal && (
         <div
-          className='flex flex-col absolute top-12 justify-start items-start w-full max-h-[200px] snap-y overflow-auto outline-0 border-[1px] border-black-300 bg-white-600 rounded-lg'
+          className='flex flex-col absolute top-12 justify-start items-start w-full max-h-[200px] snap-y overflow-auto outline-0 border-[1px] border-black-300 bg-white-600 rounded-lg z-10'
           defaultValue='default'
         >
           {options?.map((option) => (
