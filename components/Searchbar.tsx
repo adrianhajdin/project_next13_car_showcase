@@ -3,11 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-interface SearchButtonProps {
-  otherClasses?: string;
-  imgUrl?: string;
-  imgAlt?: string;
-}
+import { SearchButtonProps } from "@types";
 
 const SearchButton = ({ otherClasses, imgUrl, imgAlt }: SearchButtonProps) => (
   <button

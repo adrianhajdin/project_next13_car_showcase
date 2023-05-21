@@ -2,11 +2,8 @@
 
 import { useRouter } from "next/navigation";
 
+import { PaginationProps } from "@types";
 import { updateSearchParams } from "@utils";
-
-interface PaginationProps {
-  pageNumber: number;
-}
 
 const Pagination = ({ pageNumber = 1 }: PaginationProps) => {
   const router = useRouter();
