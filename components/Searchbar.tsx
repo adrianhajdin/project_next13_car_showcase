@@ -3,6 +3,24 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
+interface SearchButtonProps {
+  otherClasses?: string;
+  imgUrl?: string;
+  imgAlt?: string;
+}
+
+const SearchButton = ({ otherClasses, imgUrl, imgAlt }: SearchButtonProps) => (
+  <button
+    type='submit'
+    className={`max-sm:hidden -ml-3 w-[40px] h-[40px] z-10 ${otherClasses}`}
+  >
+    <img
+      src={imgUrl || "/magnifying-glass.svg"}
+      alt={imgAlt || "magnifying glass"}
+    />
+  </button>
+);
+
 const SearchBar = () => {
   const router = useRouter();
 
@@ -30,7 +48,10 @@ const SearchBar = () => {
     const updatedParams = new URLSearchParams(searchParams.toString());
 
     if (model) updatedParams.set("model", model);
+    else updatedParams.delete("model");
+
     if (manufacturer) updatedParams.set("manufacturer", manufacturer);
+    else updatedParams.delete("manufacturer");
 
     const newPathname = `${
       window.location.pathname
@@ -56,12 +77,7 @@ const SearchBar = () => {
           placeholder='BMW...'
           className='w-full h-[52px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-[rgba(59,60,152,0.03)] outline-none text-white-800 cursor-pointer'
         />
-        <button
-          type='submit'
-          className='sm:hidden -ml-3 w-[40px] h-[40px] z-10'
-        >
-          <img src='/magnifying-glass.svg' alt='magnifying glass' />
-        </button>
+        <SearchButton otherClasses='sm:hidden' />
       </div>
 
       <div className='flex-1 max-sm:w-full flex justify-start items-center relative'>
@@ -76,21 +92,9 @@ const SearchBar = () => {
           placeholder='M8 sport...'
           className='w-full h-[52px] pl-12 p-4 bg-[rgba(59,60,152,0.03)] rounded-r-full max-sm:rounded-full outline-none text-white-800 cursor-pointer'
         />
-
-        <button
-          type='submit'
-          className='sm:hidden -ml-3 w-[40px] h-[40px] z-10'
-        >
-          <img src='/magnifying-glass.svg' alt='magnifying glass' />
-        </button>
+        <SearchButton otherClasses='sm:hidden' />
       </div>
-
-      <button
-        type='submit'
-        className='max-sm:hidden -ml-3 w-[40px] h-[40px] z-10'
-      >
-        <img src='/magnifying-glass.svg' alt='magnifying glass' />
-      </button>
+      <SearchButton otherClasses='max-sm:hidden' />
     </form>
   );
 };
