@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { updateSearchParams } from "@utils";
+import { deleteSearchParams, updateSearchParams } from "@utils";
 
 interface FilterProps {
   title: string;
@@ -19,6 +19,15 @@ const Filter = ({ title, options }: FilterProps) => {
 
   const handleClick = (e: React.SyntheticEvent) => {
     const target = e.target as HTMLInputElement;
+    if (selected === target.value) {
+      setSelected("");
+
+      const newPathName = deleteSearchParams(title);
+      router.push(newPathName);
+
+      return;
+    }
+
     setSelected(target.value);
 
     // add as params
@@ -51,12 +60,12 @@ const Filter = ({ title, options }: FilterProps) => {
     <div
       ref={modalRef}
       onClick={() => setOpenModal(!openModal)}
-      className='flex flex-col items-center relative text-[14px] leading-[17px] justify-center cursor-pointer'
+      className="flex flex-col items-center relative text-[14px] leading-[17px] justify-center cursor-pointer"
     >
-      <div className='flex w-max justify-center items-center rounded-lg border-black-300 border-[1px]'>
+      <div className="flex w-max justify-center items-center rounded-lg border-black-300 border-[1px]">
         <button
-          type='button'
-          className='py-3 px-4 flex justify-center items-center gap-2'
+          type="button"
+          className="py-3 px-4 flex justify-center items-center gap-2"
         >
           {title}
           <div
@@ -66,21 +75,21 @@ const Filter = ({ title, options }: FilterProps) => {
           />
         </button>
         <img
-          src='/arrow-down.svg'
+          src="/arrow-down.svg"
           className={`${openModal ? "pl-[18px] rotate-180" : "pr-[18px]"}`}
-          alt='down arrow'
+          alt="down arrow"
         />
       </div>
 
       {openModal && (
         <div
-          className='flex flex-col absolute top-12 justify-start items-start w-full max-h-[200px] snap-y overflow-auto outline-0 border-[1px] border-black-300 bg-white-600 rounded-lg z-10 text-left'
-          defaultValue='default'
+          className="flex flex-col absolute top-12 justify-start items-start w-full max-h-[200px] snap-y overflow-auto outline-0 border-[1px] border-black-300 bg-white-600 rounded-lg z-10 text-left"
+          defaultValue="default"
         >
           {options?.map((option) => (
             <button
               key={option}
-              type='button'
+              type="button"
               value={option}
               className={`${
                 selected === option && "font-bold text-black"
