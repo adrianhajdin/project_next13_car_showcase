@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { CustomButtonProps } from "@types";
 
 const Button = ({
@@ -15,10 +17,15 @@ const Button = ({
     className={`flex flex-row relative justify-center items-center py-3 px-6 outline-none ${containerStyles}`}
     onClick={handleClick}
   >
-    <span className={`text-button-b ${textStyles}`}>{title}</span>
+    <span className={`flex-1 text-button-b ${textStyles}`}>{title}</span>
     {rightIcon && (
-      <div className="absolute right-5 ml-2">
-        <img src={rightIcon} alt="arrow_left" />
+      <div className="relative w-6 h-6">
+        <Image
+          src={rightIcon}
+          alt="arrow_left"
+          fill
+          className="object-contain"
+        />
       </div>
     )}
   </button>
