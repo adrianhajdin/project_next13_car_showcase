@@ -92,8 +92,8 @@ const Filter = ({ title, options }: FilterProps) => {
               type="button"
               value={option}
               className={`${
-                selected === option && "font-bold text-black"
-              } snap-center hover:bg-[#efefef] w-full p-2 text-left text-gray-600`}
+                selected === option ? "font-bold text-black" : "text-gray-600"
+              } snap-center hover:bg-[#efefef] w-full p-2 text-left`}
               onClick={(e) => handleClick(e)}
             >
               {option}
