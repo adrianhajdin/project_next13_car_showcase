@@ -49,9 +49,10 @@ const CarCard = ({
       <div className="relative flex w-full mt-2">
         <div className="flex w-full justify-between text-[#747A88]">
           <div className="flex flex-col justify-center items-center gap-2">
-            <img
+            <Image
               src="/steering-wheel.svg"
-              className="w-[20px] h-[20px]"
+              width={20}
+              height={20}
               alt="steering wheel"
             />
             <p className="text-[14px] leading-[17px]">
@@ -59,11 +60,11 @@ const CarCard = ({
             </p>
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
-            <img src="/tire.svg" className="w-[20px] h-[20px]" alt="seat" />
+            <Image src="/tire.svg" width={20} height={20} alt="seat" />
             <p className="text-[14px] leading-[17px]">{drive.toUpperCase()}</p>
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
-            <img src="/gas.svg" className="w-[20px] h-[20px]" alt="seat" />
+            <Image src="/gas.svg" width={20} height={20} alt="seat" />
             <p className="text-[14px] leading-[17px]">{mpg} MPG</p>
           </div>
         </div>
