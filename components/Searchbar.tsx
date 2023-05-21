@@ -1,15 +1,23 @@
 "use client";
 
+import React from "react";
 import { useRouter } from "next/navigation";
 
 const SearchBar = () => {
   const router = useRouter();
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const modelValue = e.target.elements.model.value;
-    const manufacturerValue = e.target.elements.manufacturer.value;
+    const target = e.target as typeof e.target & {
+      elements: {
+        model: { value: string };
+        manufacturer: { value: string };
+      };
+    };
+
+    const modelValue = target.elements.model.value;
+    const manufacturerValue = target.elements.manufacturer.value;
 
     if (modelValue === "" && manufacturerValue === "")
       alert("Please provide some search parameters...");
