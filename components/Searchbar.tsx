@@ -74,7 +74,7 @@ const SearchBar = () => {
           type="text"
           name="manufacturer"
           placeholder="BMW..."
-          className="w-full h-[52px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-[rgba(59,60,152,0.03)] outline-none text-white-800 cursor-pointer"
+          className="w-full h-[52px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-light-white outline-none text-white-800 cursor-pointer"
         />
         <SearchButton otherClasses="sm:hidden" />
       </div>
@@ -91,7 +91,7 @@ const SearchBar = () => {
           type="text"
           name="model"
           placeholder="M8 sport..."
-          className="w-full h-[52px] pl-12 p-4 bg-[rgba(59,60,152,0.03)] rounded-r-full max-sm:rounded-full outline-none text-white-800 cursor-pointer"
+          className="w-full h-[52px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none text-white-800 cursor-pointer"
         />
         <SearchButton otherClasses="sm:hidden" />
       </div>
