@@ -1,7 +1,6 @@
 import "./globals.css";
 
-import Footer from "@components/Footer";
-import NavBar from "@components/Navbar";
+import { NavBar, Footer } from "@components";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,10 +14,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className='py-8 lg:px-28 px-4'>
+      <body>
+        {/* <div className='main'>
+          <div className='gradient' />
+        </div> */}
+
+        {/* <div className='relative z-20'> */}
         <NavBar />
         {children}
         <Footer />
+        {/* </div> */}
       </body>
     </html>
   );
