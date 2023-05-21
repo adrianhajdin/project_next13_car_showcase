@@ -36,23 +36,23 @@ export const footerLinks = [
     title: "Menu",
     links: [
       { title: "Home", url: "/" },
-      { title: "Car Catalogue", url: "/" },
+      { title: "Catalogue", url: "/" },
       { title: "Services", url: "/" },
     ],
   },
   {
     title: "Company",
     links: [
-      { title: "About us", url: "/" },
+      { title: "About", url: "/" },
       { title: "Careers", url: "/" },
-      { title: "Contact us", url: "/" },
+      { title: "Contact", url: "/" },
     ],
   },
   {
-    title: "Further Information",
+    title: "Further",
     links: [
-      { title: "Terms & Conditions", url: "/" },
-      { title: "Privacy Policy", url: "/" },
+      { title: "Terms", url: "/" },
+      { title: "Privacy", url: "/" },
     ],
   },
   {
