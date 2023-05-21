@@ -12,8 +12,6 @@ export default async function Home({ searchParams }: HomeProps) {
     model: searchParams.model || "",
   });
 
-  console.log(allCars, allCars.length);
-
   if (!Array.isArray(allCars))
     return (
       <main className="sm:px-16 px-6 py-4 min-h-[50vh]">
