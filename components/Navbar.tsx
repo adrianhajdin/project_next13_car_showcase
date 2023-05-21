@@ -22,7 +22,7 @@ const NavBar = () => (
       <CustomButton
         title='Sign in'
         btnType='button'
-        containerStyles='px-4 py-2 border-[rgba(59,60,152,0.4)] border-[1px] rounded-[16px]'
+        containerStyles='max-sm:hidden px-4 py-2 border-[rgba(59,60,152,0.4)] border-[1px] rounded-[16px]'
       />
     </div>
   </nav>
