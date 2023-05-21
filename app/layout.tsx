@@ -15,15 +15,15 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='main'>
+        {/* <div className='main'>
           <div className='gradient' />
-        </div>
+        </div> */}
 
-        <div className='relative z-20'>
-          <NavBar />
-          {children}
-          <Footer />
-        </div>
+        {/* <div className='relative z-20'> */}
+        <NavBar />
+        {children}
+        <Footer />
+        {/* </div> */}
       </body>
     </html>
   );
