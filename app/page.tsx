@@ -32,13 +32,7 @@ interface HomeProps {
 }
 
 async function fetchCars(filters: FilterProps) {
-  const {
-    manufacturer = "",
-    year = 2022,
-    model = "",
-    limit = 10,
-    fuel = "",
-  } = filters;
+  const { manufacturer, year, model, limit, fuel } = filters;
 
   const headers: HeadersInit = {
     "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY || "",
@@ -61,6 +55,7 @@ export default async function Home({ searchParams }: HomeProps) {
     year: searchParams.year || 2022,
     fuel: searchParams.fuel || "",
     limit: searchParams.limit || 10,
+    model: searchParams.model || "",
   });
 
   return (
