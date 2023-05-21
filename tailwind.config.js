@@ -17,6 +17,8 @@ module.exports = {
         'black-400': '#2C2E33',
         'primary-purple': '#3b3c98',
         'secondary-orange': '#f79761',
+
+        'primary-purple-100': "rgba(59, 60, 152, 0.1)"
       },
     },
   },
