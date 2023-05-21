@@ -19,9 +19,9 @@ const Pagination = ({ pageNumber = 1 }: PaginationProps) => {
   };
 
   return (
-    <div className='w-full flex justify-center items-center gap-5 mt-10'>
+    <div className="w-full flex justify-center items-center gap-5 mt-10">
       <button
-        className='border-none outline-none bg-blue-100 px-4 py-2 rounded-md'
+        className="border-none outline-none bg-purple-100 px-4 py-2 rounded-md"
         onClick={() => {
           if (pageNumber > 1) {
             handleNavigation("prev");
@@ -30,9 +30,9 @@ const Pagination = ({ pageNumber = 1 }: PaginationProps) => {
       >
         Prev
       </button>
-      <p className='text-sm font-bold'>{pageNumber || 1}</p>
+      <p className="text-sm font-bold">{pageNumber || 1}</p>
       <button
-        className='border-none outline-none bg-blue-100 px-4 py-2 rounded-md'
+        className="border-none outline-none bg-purple-100 px-4 py-2 rounded-md"
         onClick={() => handleNavigation("next")}
       >
         Next
