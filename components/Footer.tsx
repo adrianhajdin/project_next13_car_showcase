@@ -1,7 +1,7 @@
 import { footerLinks } from "@constants";
 
 const Footer = () => (
-  <footer className='flex max-md:flex-col flex-wrap pt-20 lg:justify-between gap-x-32 gap-y-12 text-black-400'>
+  <footer className='flex max-md:flex-col flex-wrap lg:justify-between gap-x-32 gap-y-12 text-black-400 sm:px-16 px-6 py-10 mt-5'>
     <div className='flex flex-col justify-start items-start gap-6 pr-10'>
       <img src='/logo.svg' />
       <p className='text-base font-bold'>

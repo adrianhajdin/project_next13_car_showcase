@@ -59,7 +59,7 @@ export default async function Home({ searchParams }: HomeProps) {
   });
 
   return (
-    <main>
+    <main className='sm:px-16 px-6 py-4'>
       <SearchBar />
 
       <div className='flex max-md:flex-col md:justify-between max-md:items-start w-full pt-16'>

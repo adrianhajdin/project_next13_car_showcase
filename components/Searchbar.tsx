@@ -41,7 +41,7 @@ const SearchBar = () => {
 
   return (
     <form
-      className='flex items-center justify-center lg:w-1/3 md:w-1/2 w-full relative mx-auto mt-10'
+      className='flex items-center justify-center lg:w-1/3 md:w-1/2 w-full relative mx-auto'
       onSubmit={handleSearch}
     >
       <div className='flex justify-start items-center relative'>
@@ -72,7 +72,7 @@ const SearchBar = () => {
         />
       </div>
 
-      <button type='submit' className='absolute right-2 w-[40px] h-[40px]'>
+      <button type='submit' className='absolute right-5 w-[40px] h-[40px]'>
         <img src='/magnifying-glass.svg' alt='magnifying glass' />
       </button>
     </form>
