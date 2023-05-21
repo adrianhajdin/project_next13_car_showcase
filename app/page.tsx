@@ -1,50 +1,7 @@
+import { fetchCars } from "@utils";
+import { CarProps, HomeProps } from "@types";
 import { CarCard, Filter, Pagination, SearchBar } from "@components";
 import { manufacturers, yearsOfProduction } from "@constants";
-
-interface Car {
-  city_mpg: number;
-  class: string;
-  combination_mpg: number;
-  cylinders: number;
-  displacement: number;
-  drive: string;
-  fuel_type: string;
-  highway_mpg: number;
-  make: string;
-  model: string;
-  transmission: string;
-  year: number;
-}
-
-interface FilterProps {
-  manufacturer?: string;
-  year?: number;
-  model?: string;
-  limit?: number;
-  fuel?: string;
-}
-
-interface HomeProps {
-  searchParams: FilterProps;
-}
-
-async function fetchCars(filters: FilterProps) {
-  const { manufacturer, year, model, limit, fuel } = filters;
-
-  const headers: HeadersInit = {
-    "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY || "",
-    "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
-  };
-
-  const response = await fetch(
-    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`,
-    {
-      headers: headers,
-    }
-  );
-  const result = await response.json();
-  return result;
-}
 
 export default async function Home({ searchParams }: HomeProps) {
   const allCars = await fetchCars({
@@ -74,7 +31,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
       <section className="flex flex-col w-full h-full">
         <div className="grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14">
-          {allCars.map((car: Car) => (
+          {allCars.map((car: CarProps) => (
             <CarCard
               model={car.model}
               make={car.make}

@@ -3,14 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { FilterItemProps } from "@types";
 import { deleteSearchParams, updateSearchParams } from "@utils";
 
-interface FilterProps {
-  title: string;
-  options: string[];
-}
-
-const Filter = ({ title, options }: FilterProps) => {
+const Filter = ({ title, options }: FilterItemProps) => {
   const router = useRouter();
 
   const [openModal, setOpenModal] = useState(false);
