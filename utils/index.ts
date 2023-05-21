@@ -12,3 +12,14 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
 
   return rentalRatePerDay.toFixed(0);
 };
+
+export const updateSearchParams = (type: string, value: string) => {
+  const searchParams = new URLSearchParams(window.location.search);
+  const updatedParams = new URLSearchParams(searchParams.toString());
+
+  updatedParams.set(type, value);
+
+  const newPathname = `${window.location.pathname}?${updatedParams.toString()}`;
+
+  return newPathname;
+};

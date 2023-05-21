@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { updateSearchParams } from "@utils";
+
 interface FilterProps {
   title: string;
   options: string[];
@@ -19,23 +21,12 @@ const Filter = ({ title, options }: FilterProps) => {
     setSelected(target.value);
 
     // add as params
-    updateSearchParams(target.value);
-  };
+    const newPathName = updateSearchParams(
+      title.toLowerCase(),
+      target.value.toLowerCase()
+    );
 
-  const updateSearchParams = (selectedItem: string) => {
-    const searchParams = new URLSearchParams(window.location.search);
-    const updatedParams = new URLSearchParams(searchParams.toString());
-
-    const lowercaseTitleName = title.toLowerCase();
-    const lowercaseSelectedItem = selectedItem.toLowerCase();
-
-    updatedParams.set(lowercaseTitleName, lowercaseSelectedItem);
-
-    const newPathname = `${
-      window.location.pathname
-    }?${updatedParams.toString()}`;
-
-    router.push(newPathname);
+    router.push(newPathName);
   };
 
   return (

@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 
+import { updateSearchParams } from "@utils";
+
 interface PaginationProps {
   pageNumber: number;
 }
@@ -10,16 +12,9 @@ const Pagination = ({ pageNumber = 1 }: PaginationProps) => {
   const router = useRouter();
 
   const handleNavigation = (type: string) => {
-    const searchParams = new URLSearchParams(window.location.search);
-    const updatedParams = new URLSearchParams(searchParams.toString());
     const newLimit = (pageNumber + (type === "prev" ? -1 : 1)) * 10;
 
-    updatedParams.set("limit", `${newLimit}`);
-
-    const newPathname = `${
-      window.location.pathname
-    }?${updatedParams.toString()}`;
-
+    const newPathname = updateSearchParams("limit", `${newLimit}`);
     router.push(newPathname);
   };
 
