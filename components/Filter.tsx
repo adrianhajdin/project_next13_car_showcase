@@ -57,12 +57,12 @@ const Filter = ({ title, options }: FilterItemProps) => {
     <div
       ref={modalRef}
       onClick={() => setOpenModal(!openModal)}
-      className="flex flex-col items-center relative text-[14px] leading-[17px] justify-center cursor-pointer"
+      className='flex flex-col items-center relative text-[14px] leading-[17px] justify-center cursor-pointer'
     >
-      <div className="flex w-max justify-center items-center gap-3 px-4 py-2.5 rounded-lg border-black-300 border-[1px]">
+      <div className='flex w-max justify-center items-center gap-3 px-4 py-2.5 rounded-lg border-black-300 border-[1px]'>
         <button
-          type="button"
-          className="flex justify-center items-center gap-2"
+          type='button'
+          className='flex justify-center items-center gap-2'
         >
           {title}
           <div
@@ -72,27 +72,27 @@ const Filter = ({ title, options }: FilterItemProps) => {
           />
         </button>
         <Image
-          src="/arrow-down.svg"
+          src='/arrow-down.svg'
           width={10}
           height={10}
           className={`${openModal ? "rotate-180" : ""}`}
-          alt="down arrow"
+          alt='down arrow'
         />
       </div>
 
       {openModal && (
         <div
-          className="flex flex-col absolute top-12 justify-start items-start max-h-[200px] snap-y overflow-auto outline-0 border-[1px] border-black-300 bg-white-600 rounded-lg z-10 text-left"
-          defaultValue="default"
+          className='flex flex-col absolute top-12 justify-start items-start max-h-[200px] snap-y overflow-auto outline-0 border-[1px] border-black-300 bg-white-600 rounded-lg z-10 text-left'
+          defaultValue='default'
         >
           {options?.map((option) => (
             <button
               key={option}
-              type="button"
+              type='button'
               value={option}
               className={`${
                 selected === option ? "font-bold text-black" : "text-gray-600"
-              } snap-center hover:bg-[#efefef] py-2 px-4 text-left`}
+              } w-full snap-center hover:bg-[#efefef] py-2 px-4 text-left`}
               onClick={(e) => handleClick(e)}
             >
               {option}
