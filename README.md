@@ -58,6 +58,16 @@ npx create-next-app@latest
 - Would you like to use the `src/ directory` with this project? **_No_**
 - What import alias would you like configured? **_@\*_**
 
+### Things to know
+To enable the functionality of dynamic images, we need to inform Next.js explicitly that we anticipate receiving dynamic image URLs from a particular source. This can be achieved by adjusting the configuration of Next.js as follows:
+```javascript
+const nextConfig = {
+    images: {
+        domains: ["cdn.imagin.studio"]
+    }
+}
+```
+
 ### Notes
 
 We have the option to perform data fetching in two ways: on the client side or on the server side. As demonstrated in the Next.js crash course, implementing server-side rendering offers numerous benefits, including improved performance, SEO optimization, efficient data fetching, and reduced complexity on the client side.
