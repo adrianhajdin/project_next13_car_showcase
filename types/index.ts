@@ -53,6 +53,7 @@ export interface FilterItemProps {
 
 export interface PaginationProps {
   pageNumber: number;
+  isNext: boolean;
 }
 
 export interface SearchButtonProps {
