@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import { SearchButtonProps } from "@types";
+import SearchManufacturer from "./SearchManufacturer";
 
 const SearchButton = ({ otherClasses, imgUrl, imgAlt }: SearchButtonProps) => (
   <button type='submit' className={`-ml-3 z-10 ${otherClasses}`}>
@@ -69,23 +70,7 @@ const SearchBar = () => {
       className='flex items-center justify-center max-sm:flex-col w-full relative mx-auto max-sm:gap-4 max-w-3xl'
       onSubmit={handleSearch}
     >
-      <div className='flex-1 max-sm:w-full flex justify-start items-center relative'>
-        <Image
-          src='/car-logo.svg'
-          width={25}
-          height={25}
-          className='absolute ml-4'
-          alt='car logo'
-        />
-        <input
-          type='text'
-          name='manufacturer'
-          placeholder='BMW...'
-          className='w-full h-[52px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-light-white outline-none text-white-800 cursor-pointer'
-        />
-        <SearchButton otherClasses='sm:hidden' />
-      </div>
-
+      <SearchManufacturer />
       <div className='flex-1 max-sm:w-full flex justify-start items-center relative'>
         <Image
           src='/model-icon.png'

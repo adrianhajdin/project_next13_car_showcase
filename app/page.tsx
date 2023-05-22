@@ -1,7 +1,7 @@
 import { fetchCars } from "@utils";
 import { CarProps, HomeProps } from "@types";
 import { CarCard, Filter, Pagination, SearchBar } from "@components";
-import { manufacturers, yearsOfProduction } from "@constants";
+import { yearsOfProduction } from "@constants";
 
 export default async function Home({ searchParams }: HomeProps) {
   const allCars = await fetchCars({
@@ -36,7 +36,6 @@ export default async function Home({ searchParams }: HomeProps) {
 
         <div className='flex justify-start flex-wrap items-center gap-2 max-md:pt-10'>
           <Filter title='Fuel' options={["Gas", "Electricity"]} />
-          <Filter title='Manufacturer' options={manufacturers} />
           <Filter title='Year' options={yearsOfProduction} />
         </div>
       </div>
