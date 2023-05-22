@@ -3,6 +3,7 @@
 A car showcase application using Next.js 13
 
 ### Things to Provide
+
 - assets
 - tailwind config
   ```javascript
@@ -32,7 +33,7 @@ A car showcase application using Next.js 13
             DEFAULT: "rgba(59,60,152,0.03)",
             100: "rgba(59,60,152,0.02)",
           },
-          gray: "#747A88",
+          grey: "#747A88",
         },
       },
     },
@@ -40,20 +41,22 @@ A car showcase application using Next.js 13
   };
   ```
 - globals.css
-- favicon 
+- favicon
 
 ### Setup
+
 Create a Next.js 13 project using,
+
 ```bash
 npx create-next-app@latest
 ```
 
-- What is your project named?  **_carhub_**
-- Would you like to add TypeScript with this project?  **_Yes_**
-- Would you like to use ESLint with this project?  **_No_**
+- What is your project named? **_carhub_**
+- Would you like to add TypeScript with this project? **_Yes_**
+- Would you like to use ESLint with this project? **_No_**
 - Would you like to use Tailwind CSS with this project? **_Yes_**
 - Would you like to use the `src/ directory` with this project? **_No_**
-- What import alias would you like configured? **_@*_**
+- What import alias would you like configured? **_@\*_**
 
 ### Notes
 
