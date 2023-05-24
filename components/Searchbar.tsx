@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import { SearchButtonProps } from "@types";
 import SearchManufacturer from "./SearchManufacturer";
+import { deleteSearchParams, updateSearchParams } from "@utils";
 
 const SearchButton = ({ otherClasses, imgUrl, imgAlt }: SearchButtonProps) => (
   <button type='submit' className={`-ml-3 z-10 ${otherClasses}`}>
@@ -20,49 +21,27 @@ const SearchButton = ({ otherClasses, imgUrl, imgAlt }: SearchButtonProps) => (
 );
 
 const SearchBar = () => {
+  const [manufacturer, setManuFacturer] = useState("");
+  const [model, setModel] = useState("");
+
   const router = useRouter();
 
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSearch = () => {
+    if (!manufacturer || !model) return alert("Please provide some input");
 
-    // Extract the input elements from the event target
-    const target = e.target as typeof e.target & {
-      elements: {
-        model: { value: string };
-        manufacturer: { value: string };
-      };
-    };
+    if (manufacturer) {
+      const newPathname = updateSearchParams("manufacturer", manufacturer);
+      router.push(newPathname);
+    } else {
+      deleteSearchParams("manufacturer");
+    }
 
-    // Get the values of the model and manufacturer inputs
-    const modelValue = target.elements.model.value;
-    const manufacturerValue = target.elements.manufacturer.value;
-
-    // Check if both modelValue and manufacturerValue are empty
-    if (modelValue === "" && manufacturerValue === "")
-      alert("Please provide some search parameters...");
-
-    // update the URL search parameters
-    updateSearchParams(modelValue, manufacturerValue);
-  };
-
-  const updateSearchParams = (model: string, manufacturer: string) => {
-    // Create a new URLSearchParams object using the current URL search parameters
-    const searchParams = new URLSearchParams(window.location.search);
-
-    // Update or delete the 'model' search parameter based on the 'model' value
-    if (model) searchParams.set("model", model);
-    else searchParams.delete("model");
-
-    // Update or delete the 'manufacturer' search parameter based on the 'manufacturer' value
-    if (manufacturer) searchParams.set("manufacturer", manufacturer);
-    else searchParams.delete("manufacturer");
-
-    // Generate the new pathname with the updated search parameters
-    const newPathname = `${
-      window.location.pathname
-    }?${searchParams.toString()}`;
-
-    router.push(newPathname);
+    if (model) {
+      const newPathname = updateSearchParams("model", model);
+      router.push(newPathname);
+    } else {
+      deleteSearchParams("model");
+    }
   };
 
   return (
@@ -70,7 +49,10 @@ const SearchBar = () => {
       className='flex items-center justify-center max-sm:flex-col w-full relative mx-auto max-sm:gap-4 max-w-3xl'
       onSubmit={handleSearch}
     >
-      <SearchManufacturer />
+      <SearchManufacturer
+        manufacturer={manufacturer}
+        setManuFacturer={setManuFacturer}
+      />
       <div className='flex-1 max-sm:w-full flex justify-start items-center relative'>
         <Image
           src='/model-icon.png'
@@ -82,6 +64,8 @@ const SearchBar = () => {
         <input
           type='text'
           name='model'
+          value={model}
+          onChange={(e) => setModel(e.target.value)}
           placeholder='M8 sport...'
           className='w-full h-[52px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none text-white-800 cursor-pointer'
         />

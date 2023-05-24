@@ -61,6 +61,11 @@ export interface PaginationProps {
   isNext: boolean;
 }
 
+export interface SearchManuFacturerProps {
+  manufacturer: string;
+  setManuFacturer: (manufacturer: string) => void;
+}
+
 export interface SearchButtonProps {
   otherClasses?: string;
   imgUrl?: string;
