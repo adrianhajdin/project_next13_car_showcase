@@ -3,7 +3,7 @@ import CustomButton from "./CustomButton";
 import CustomFilter from "./CustomFilter";
 import Footer from "./Footer";
 import NavBar from "./Navbar";
-import Pagination from "./Pagination";
+import ShowMore from "./ShowMore";
 import SearchBar from "./Searchbar";
 
 export {
@@ -12,6 +12,6 @@ export {
   CustomFilter,
   Footer,
   NavBar,
-  Pagination,
+  ShowMore,
   SearchBar,
 };
