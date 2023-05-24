@@ -36,15 +36,7 @@ export default async function Home({ searchParams }: HomeProps) {
         <section className='flex flex-col w-full h-full'>
           <div className='grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14'>
             {allCars?.map((car: CarProps) => (
-              <CarCard
-                model={car.model}
-                make={car.make}
-                mpg={car.highway_mpg}
-                transmission={car.transmission}
-                year={car.year}
-                drive={car.drive}
-                cityMPG={car.city_mpg}
-              />
+              <CarCard car={car} />
             ))}
           </div>
 
