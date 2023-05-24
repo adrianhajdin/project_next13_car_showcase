@@ -3,16 +3,19 @@ import Image from "next/image";
 import { Combobox, Transition } from "@headlessui/react";
 
 import { manufacturers } from "@constants";
+import { SearchManuFacturerProps } from "@types";
 
-const SearchManufacturer = () => {
-  const [selected, setSelected] = useState("");
+const SearchManufacturer = ({
+  manufacturer,
+  setManuFacturer,
+}: SearchManuFacturerProps) => {
   const [query, setQuery] = useState("");
 
   const filtereManufacturers =
     query === ""
       ? manufacturers
-      : manufacturers.filter((manufacturer) =>
-          manufacturer
+      : manufacturers.filter((item) =>
+          item
             .toLowerCase()
             .replace(/\s+/g, "")
             .includes(query.toLowerCase().replace(/\s+/g, ""))
@@ -20,7 +23,7 @@ const SearchManufacturer = () => {
 
   return (
     <div className='flex-1 max-sm:w-full flex justify-start items-center'>
-      <Combobox value={selected} onChange={setSelected}>
+      <Combobox value={manufacturer} onChange={setManuFacturer}>
         <div className='relative w-full'>
           <Combobox.Button className='absolute top-[14px]'>
             <Image
@@ -33,7 +36,7 @@ const SearchManufacturer = () => {
           </Combobox.Button>
           <Combobox.Input
             className='w-full h-[52px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-light-white outline-none text-white-800 cursor-pointer'
-            displayValue={(manufacturer: string) => manufacturer}
+            displayValue={(item: string) => item}
             onChange={(event) => setQuery(event.target.value)}
             placeholder='bmw...'
           />
@@ -57,9 +60,9 @@ const SearchManufacturer = () => {
                   Create "{query}"
                 </Combobox.Option>
               ) : (
-                filtereManufacturers.map((manufacturer) => (
+                filtereManufacturers.map((item) => (
                   <Combobox.Option
-                    key={manufacturer}
+                    key={item}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-10 pr-4 ${
                         active
@@ -67,7 +70,7 @@ const SearchManufacturer = () => {
                           : "text-gray-900"
                       }`
                     }
-                    value={manufacturer}
+                    value={item}
                   >
                     {({ selected, active }) => (
                       <>
@@ -76,7 +79,7 @@ const SearchManufacturer = () => {
                             selected ? "font-medium" : "font-normal"
                           }`}
                         >
-                          {manufacturer}
+                          {item}
                         </span>
 
                         {selected ? (
