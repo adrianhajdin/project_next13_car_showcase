@@ -79,7 +79,7 @@ const CarCard = ({ car }) => {
 
         <div className='hidden group-hover:flex absolute bottom-0 w-full z-10'>
           <CustomButton
-            title='Rent Now'
+            title='View More'
             containerStyles='w-full py-[16px] rounded-lg bg-gradient-to-r from-[#5E60C1] from-[0.78%] to-[#7E80CD] to-[99.38%]'
             textStyles='text-white text-[14px] leading-[17px] font-bold'
             rightIcon='/right-arrow.svg'
