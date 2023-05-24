@@ -12,17 +12,7 @@ export default async function Home({ searchParams }: HomeProps) {
     model: searchParams.model || "",
   });
 
-  if (!Array.isArray(allCars) || allCars.length < 1 || !allCars)
-    return (
-      <main className='sm:px-16 px-6 py-4 min-h-[50vh]'>
-        <SearchBar />
-
-        <div className='mt-16 flex justify-center items-center flex-col gap-2'>
-          <h2 className='text-black text-xl font-bold'>Oops, no results</h2>
-          <p>{allCars?.message}</p>
-        </div>
-      </main>
-    );
+  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
   return (
     <main className='sm:px-16 px-6 py-4'>
@@ -40,26 +30,33 @@ export default async function Home({ searchParams }: HomeProps) {
         </div>
       </div>
 
-      <section className='flex flex-col w-full h-full'>
-        <div className='grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14'>
-          {allCars?.map((car: CarProps) => (
-            <CarCard
-              model={car.model}
-              make={car.make}
-              mpg={car.highway_mpg}
-              transmission={car.transmission}
-              year={car.year}
-              drive={car.drive}
-              cityMPG={car.city_mpg}
-            />
-          ))}
-        </div>
+      {!isDataEmpty ? (
+        <section className='flex flex-col w-full h-full'>
+          <div className='grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14'>
+            {allCars?.map((car: CarProps) => (
+              <CarCard
+                model={car.model}
+                make={car.make}
+                mpg={car.highway_mpg}
+                transmission={car.transmission}
+                year={car.year}
+                drive={car.drive}
+                cityMPG={car.city_mpg}
+              />
+            ))}
+          </div>
 
-        <Pagination
-          pageNumber={(searchParams.limit || 10) / 10}
-          isNext={(searchParams.limit || 10) > allCars.length}
-        />
-      </section>
+          <Pagination
+            pageNumber={(searchParams.limit || 10) / 10}
+            isNext={(searchParams.limit || 10) > allCars.length}
+          />
+        </section>
+      ) : (
+        <div className='mt-16 flex justify-center items-center flex-col gap-2'>
+          <h2 className='text-black text-xl font-bold'>Oops, no results</h2>
+          <p>{allCars?.message}</p>
+        </div>
+      )}
     </main>
   );
 }
