@@ -51,6 +51,16 @@ export interface FilterItemProps {
   options: string[];
 }
 
+export interface OptionProps {
+  title: string;
+  value: string;
+}
+
+export interface CustomFilterProps {
+  title: string;
+  options: OptionProps[];
+}
+
 export interface PaginationProps {
   pageNumber: number;
   isNext: boolean;
