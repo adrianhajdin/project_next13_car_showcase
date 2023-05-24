@@ -1,27 +1,35 @@
-import Image from "next/image";
+"use client";
 
-import { CarCardProps } from "@types";
+import Image from "next/image";
+import { useState } from "react";
+
+import { CarProps } from "@types";
 import { calculateCarRent } from "@utils";
 import CustomButton from "./CustomButton";
+import CarDetails from "./CarDetails";
 
-const CarCard = ({
-  model,
-  make,
-  mpg,
-  transmission,
-  year,
-  drive,
-  cityMPG,
-}: CarCardProps) => {
+// @ts-ignore
+const CarCard = ({ car }) => {
+  const { city_mpg, year, make, model, transmission, drive, mpg } = car;
+
+  let [isOpen, setIsOpen] = useState(false);
+
   const imaginApiKey = process.env.NEXT_PUBLIC_IMAGIN_API_KEY;
 
-  const carRent = calculateCarRent(cityMPG, year);
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  const carRent = calculateCarRent(city_mpg, year);
 
   return (
     <div className='group flex flex-col p-6 justify-center items-start text-black-400 bg-light-white-100 rounded-[24px] hover:shadow-md'>
-      <h2 className='text-[22px] leading-[26px] font-bold'>
-        {make.charAt(0).toUpperCase() + make.slice(1)}{" "}
-        {model.charAt(0).toUpperCase() + model.slice(1)}
+      <h2 className='text-[22px] leading-[26px] font-bold capitalize'>
+        {make} {model}
       </h2>
 
       <p className='flex mt-6 text-[32px] leading-[38px] font-extrabold'>
@@ -75,9 +83,12 @@ const CarCard = ({
             containerStyles='w-full py-[16px] rounded-lg bg-gradient-to-r from-[#5E60C1] from-[0.78%] to-[#7E80CD] to-[99.38%]'
             textStyles='text-white text-[14px] leading-[17px] font-bold'
             rightIcon='/right-arrow.svg'
+            handleClick={openModal}
           />
         </div>
       </div>
+
+      <CarDetails isOpen={isOpen} closeModal={closeModal} car={car} />
     </div>
   );
 };
