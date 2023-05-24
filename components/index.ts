@@ -1,9 +1,17 @@
 import CarCard from "./CarCard";
 import CustomButton from "./CustomButton";
-import Filter from "./Filter";
+import CustomFilter from "./CustomFilter";
 import Footer from "./Footer";
 import NavBar from "./Navbar";
 import Pagination from "./Pagination";
 import SearchBar from "./Searchbar";
 
-export { CarCard, CustomButton, Filter, Footer, NavBar, Pagination, SearchBar };
+export {
+  CarCard,
+  CustomButton,
+  CustomFilter,
+  Footer,
+  NavBar,
+  Pagination,
+  SearchBar,
+};
