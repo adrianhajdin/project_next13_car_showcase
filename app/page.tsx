@@ -1,7 +1,7 @@
 import { fetchCars } from "@utils";
 import { CarProps, HomeProps } from "@types";
 import { fuels, yearsOfProduction } from "@constants";
-import { CarCard, Pagination, SearchBar, CustomFilter } from "@components";
+import { CarCard, ShowMore, SearchBar, CustomFilter } from "@components";
 
 export default async function Home({ searchParams }: HomeProps) {
   const allCars = await fetchCars({
@@ -11,6 +11,8 @@ export default async function Home({ searchParams }: HomeProps) {
     limit: searchParams.limit || 10,
     model: searchParams.model || "",
   });
+
+  // const allCars = [];
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
@@ -46,7 +48,7 @@ export default async function Home({ searchParams }: HomeProps) {
             ))}
           </div>
 
-          <Pagination
+          <ShowMore
             pageNumber={(searchParams.limit || 10) / 10}
             isNext={(searchParams.limit || 10) > allCars.length}
           />

@@ -38,6 +38,7 @@ export interface CarCardProps {
 }
 
 export interface CustomButtonProps {
+  isDisabled?: boolean;
   btnType?: "button" | "submit";
   containerStyles?: string;
   textStyles?: string;
@@ -56,7 +57,7 @@ export interface CustomFilterProps {
   options: OptionProps[];
 }
 
-export interface PaginationProps {
+export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
 }
