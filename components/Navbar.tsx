@@ -10,7 +10,7 @@ const NavBar = () => {
   const pathName = usePathname();
 
   return (
-    <nav className='flex justify-between items-center w-full sm:px-16 px-6 py-4'>
+    <nav className='absolute flex justify-between items-center w-full sm:px-16 px-6 py-4 bg-transparent z-10'>
       <Link href='/' className='flex justify-center items-center'>
         <Image
           src='/logo.svg'
@@ -46,7 +46,7 @@ const NavBar = () => {
         <CustomButton
           title='Sign in'
           btnType='button'
-          containerStyles='rounded-full bg-primary-purple text-white'
+          containerStyles='rounded-full bg-white text-primary-purple'
         />
       </div>
     </nav>
