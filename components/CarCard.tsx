@@ -42,7 +42,7 @@ const CarCard = ({ car }) => {
         </span>
       </p>
 
-      <div className='relative w-full h-40 my-4 object-contain'>
+      <div className='relative w-full h-40 my-3 object-contain'>
         <Image
           src={`https://cdn.imagin.studio/getimage?customer=${imaginApiKey}&make=${make}&modelFamily=${
             model.split(" ")[0]
