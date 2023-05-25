@@ -72,47 +72,30 @@ export const fuels = [
 
 export const footerLinks = [
   {
-    title: "Menu",
+    title: "About",
     links: [
-      { title: "Home", url: "/" },
-      { title: "Catalogue", url: "/" },
-      { title: "Services", url: "/" },
+      { title: "How it works", url: "/" },
+      { title: "Featured", url: "/" },
+      { title: "Partnership", url: "/" },
+      { title: "Bussiness Relation", url: "/" },
     ],
   },
   {
     title: "Company",
     links: [
-      { title: "About", url: "/" },
-      { title: "Careers", url: "/" },
-      { title: "Contact", url: "/" },
+      { title: "Events", url: "/" },
+      { title: "Blog", url: "/" },
+      { title: "Podcast", url: "/" },
+      { title: "Invite a friend", url: "/" },
     ],
   },
   {
-    title: "Further",
+    title: "Socials",
     links: [
-      { title: "Terms", url: "/" },
-      { title: "Privacy", url: "/" },
+      { title: "Discord", url: "/" },
+      { title: "Instagram", url: "/" },
+      { title: "Twitter", url: "/" },
+      { title: "Facebook", url: "/" },
     ],
-  },
-  {
-    title: "Social media",
-    links: [
-      {
-        title: "Github",
-        url: "https://github.com/adrianhajdin?tab=repositories",
-        icon: "/github.svg",
-      },
-      {
-        title: "Discord",
-        url: "https://discord.gg/KNay9TqYZg",
-        icon: "/discord.svg",
-      },
-      {
-        title: "LinkedIn",
-        url: "https://www.linkedin.com/company/javascriptmastery/",
-        icon: "/linkedin.svg",
-      },
-    ],
-    isSocialMedia: true,
   },
 ];
