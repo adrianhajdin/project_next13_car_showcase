@@ -21,7 +21,7 @@ const NavBar = () => {
         />
       </Link>
 
-      <ul className='flex gap-7'>
+      <ul className='sm:flex hidden gap-7'>
         <Link href='/'>
           <li
             className={`${
