@@ -67,6 +67,8 @@ export async function fetchCars(filters: FilterProps) {
 
 // Retrieve car data from localStorage
 export const getCarsFromLocalStorage = (fuel = "", year = 2022) => {
+  console.log(fuel, year);
+
   try {
     const carsJSON = localStorage.getItem("cars");
     if (carsJSON === null) {
@@ -76,16 +78,23 @@ export const getCarsFromLocalStorage = (fuel = "", year = 2022) => {
       // Parse the JSON data and return the array of cars
       const cars = JSON.parse(carsJSON);
 
+      console.log("cars", cars);
+
+      let filteredCars = cars;
       // Filter cars based on fuel and year if provided
       if (fuel !== "") {
-        const filteredCars = cars.filter(
-          (car: CarProps) => car.fuel_type === fuel && car.year === year
+        filteredCars = filteredCars.filter(
+          (car: CarProps) => car.fuel_type === fuel.toLowerCase()
         );
-
-        return filteredCars;
       }
 
-      return cars;
+      if (year) {
+        filteredCars = filteredCars.filter(
+          (car: CarProps) => car.year === +year
+        );
+      }
+
+      return filteredCars;
     }
   } catch (error) {
     // If there is an error while retrieving data, handle it appropriately
@@ -95,8 +104,6 @@ export const getCarsFromLocalStorage = (fuel = "", year = 2022) => {
 };
 
 export const addCarToLocalStorage = (car: CarProps) => {
-  console.log(car);
-
   try {
     const cars = getCarsFromLocalStorage();
 
