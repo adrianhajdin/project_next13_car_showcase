@@ -14,7 +14,7 @@ const MyFavorites = ({ searchParams }: HomeProps) => {
   return (
     <main className='sm:px-16 px-6 pt-32 pb-4 max-w-[1440px] mx-auto'>
       <div className='flex max-md:flex-col md:justify-between max-md:items-start w-full mt-16'>
-        <div className='flex flex-col items-start justify-start gap-y-2.5 text-black-400'>
+        <div className='flex flex-col items-start justify-start gap-y-2.5 text-black-100'>
           <h1 className='text-4xl font-extrabold'>Favorite Cars</h1>
           <p>Explore out cars you have liked!</p>
         </div>

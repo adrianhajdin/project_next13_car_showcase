@@ -23,7 +23,7 @@ A car showcase application using Next.js 13
           "white-600": "#fcfcfc",
           "black-100": "#bbbbbb",
           "black-300": "#9195a1",
-          "black-400": "#2C2E33",
+          "black-100": "#2C2E33",
           "primary-purple": {
             DEFAULT: "#3b3c98",
             100: "rgba(59, 60, 152, 0.1)",
@@ -59,13 +59,15 @@ npx create-next-app@latest
 - What import alias would you like configured? **_@\*_**
 
 ### Things to know
+
 To enable the functionality of dynamic images, we need to inform Next.js explicitly that we anticipate receiving dynamic image URLs from a particular source. This can be achieved by adjusting the configuration of Next.js as follows:
+
 ```javascript
 const nextConfig = {
-    images: {
-        domains: ["cdn.imagin.studio"]
-    }
-}
+  images: {
+    domains: ["cdn.imagin.studio"],
+  },
+};
 ```
 
 ### Notes
