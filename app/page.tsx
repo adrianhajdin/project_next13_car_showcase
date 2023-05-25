@@ -1,5 +1,5 @@
 import { fetchCars } from "@utils";
-import { CarProps, HomeProps } from "@types";
+import { HomeProps } from "@types";
 import { fuels, yearsOfProduction } from "@constants";
 import { CarCard, ShowMore, SearchBar, CustomFilter, Hero } from "@components";
 
@@ -12,16 +12,16 @@ export default async function Home({ searchParams }: HomeProps) {
     model: searchParams.model || "",
   });
 
-  // const allCars = [];
-
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
-  // className = "";
   return (
-    <main>
+    <main className='overflow-hidden'>
       <Hero />
 
-      <div className='mt-12 sm:px-16 px-6 py-4' id='discover'>
+      <div
+        className='mt-12 sm:px-16 px-6 py-4 max-w-[1440px] mx-auto'
+        id='discover'
+      >
         <SearchBar />
 
         <div className='flex max-md:flex-col md:justify-between max-md:items-start w-full mt-16'>

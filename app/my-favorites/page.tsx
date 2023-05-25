@@ -12,7 +12,7 @@ const MyFavorites = ({ searchParams }: HomeProps) => {
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
   return (
-    <main className='sm:px-16 px-6 pt-32 pb-4'>
+    <main className='sm:px-16 px-6 pt-32 pb-4 max-w-[1440px] mx-auto'>
       <div className='flex max-md:flex-col md:justify-between max-md:items-start w-full mt-16'>
         <div className='flex flex-col items-start justify-start gap-y-2.5 text-black-400'>
           <h1 className='text-4xl font-extrabold'>Favorite Cars</h1>
