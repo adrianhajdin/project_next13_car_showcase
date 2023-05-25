@@ -7,13 +7,17 @@ import { addCarToLocalStorage, calculateCarRent } from "@utils";
 import CustomButton from "./CustomButton";
 import CarDetails from "./CarDetails";
 import { usePathname } from "next/navigation";
+import { CarProps } from "@types";
 
-// @ts-ignore
-const CarCard = ({ car }) => {
+interface CarCardProps {
+  car: CarProps;
+}
+
+const CarCard = ({ car }: CarCardProps) => {
   const pathName = usePathname();
 
   const [isLiked, setIsLiked] = useState(false);
-  const { city_mpg, year, make, model, transmission, drive, mpg } = car;
+  const { city_mpg, year, make, model, transmission, drive } = car;
 
   let [isOpen, setIsOpen] = useState(false);
 
@@ -98,7 +102,7 @@ const CarCard = ({ car }) => {
           </div>
           <div className='flex flex-col justify-center items-center gap-2'>
             <Image src='/gas.svg' width={20} height={20} alt='seat' />
-            <p className='text-[14px] leading-[17px]'>{mpg} MPG</p>
+            <p className='text-[14px] leading-[17px]'>{city_mpg} MPG</p>
           </div>
         </div>
 
