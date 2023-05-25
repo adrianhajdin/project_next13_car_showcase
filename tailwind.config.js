@@ -12,13 +12,10 @@ module.exports = {
         inter: ["Inter", "sans-serif"],
       },
       colors: {
-        "white-600": "#fcfcfc",
-        "black-100": "#bbbbbb",
-        "black-300": "#9195a1",
-        "black-400": "#2C2E33",
-        "primary-purple": {
-          DEFAULT: "#3b3c98",
-          100: "rgba(59, 60, 152, 0.1)",
+        "black-100": "#2B2C35",
+        "primary-blue": {
+          DEFAULT: "#2B59FF",
+          100: "#F5F8FF",
         },
         "secondary-orange": "#f79761",
         "light-white": {

@@ -39,7 +39,7 @@ const CarCard = ({ car }: CarCardProps) => {
   const carRent = calculateCarRent(city_mpg, year);
 
   return (
-    <div className='group flex flex-col p-6 justify-center items-start text-black-400 bg-light-white-100 rounded-[24px] hover:shadow-md'>
+    <div className='group flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl'>
       <div className='w-full flex justify-between items-start gap-2'>
         <h2 className='text-[22px] leading-[26px] font-bold capitalize'>
           {make} {model}
@@ -84,7 +84,7 @@ const CarCard = ({ car }: CarCardProps) => {
       </div>
 
       <div className='relative flex w-full mt-2'>
-        <div className='flex w-full justify-between text-grey'>
+        <div className='flex group-hover:invisible w-full justify-between text-grey'>
           <div className='flex flex-col justify-center items-center gap-2'>
             <Image
               src='/steering-wheel.svg'
@@ -109,7 +109,7 @@ const CarCard = ({ car }: CarCardProps) => {
         <div className='hidden group-hover:flex absolute bottom-0 w-full z-10'>
           <CustomButton
             title='View More'
-            containerStyles='w-full py-[16px] rounded-lg bg-gradient-to-r from-[#5E60C1] from-[0.78%] to-[#7E80CD] to-[99.38%]'
+            containerStyles='w-full py-[16px] rounded-full bg-primary-blue'
             textStyles='text-white text-[14px] leading-[17px] font-bold'
             rightIcon='/right-arrow.svg'
             handleClick={openModal}
