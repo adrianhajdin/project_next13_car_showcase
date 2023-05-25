@@ -1,4 +1,4 @@
-import { FilterProps } from "@types";
+import { CarProps, FilterProps } from "@types";
 
 const basePricePerDay = 50; // Base rental price per day in dollars
 const mileageFactor = 0.1; // Additional rate per mile driven
@@ -64,3 +64,60 @@ export async function fetchCars(filters: FilterProps) {
   const result = await response.json();
   return result;
 }
+
+// Retrieve car data from localStorage
+export const getCarsFromLocalStorage = (fuel = "", year = 2022) => {
+  try {
+    const carsJSON = localStorage.getItem("cars");
+    if (carsJSON === null) {
+      // If no data is found in localStorage, return an empty array
+      return [];
+    } else {
+      // Parse the JSON data and return the array of cars
+      const cars = JSON.parse(carsJSON);
+
+      // Filter cars based on fuel and year if provided
+      if (fuel !== "") {
+        const filteredCars = cars.filter(
+          (car: CarProps) => car.fuel_type === fuel && car.year === year
+        );
+
+        return filteredCars;
+      }
+
+      return cars;
+    }
+  } catch (error) {
+    // If there is an error while retrieving data, handle it appropriately
+    console.error("Error retrieving car data from localStorage:", error);
+    return [];
+  }
+};
+
+export const addCarToLocalStorage = (car: CarProps) => {
+  console.log(car);
+
+  try {
+    const cars = getCarsFromLocalStorage();
+
+    // Check if the car already exists in the cars array
+    const isCarAlreadyExists = cars.some(
+      (existingCar: CarProps) => existingCar.id === car.id
+    );
+
+    if (!isCarAlreadyExists) {
+      // If the car doesn't exist, add it to the cars array
+      cars.push(car);
+
+      // Save the updated cars array to localStorage
+      localStorage.setItem("cars", JSON.stringify(cars));
+
+      console.log("Car added to localStorage:", car);
+    } else {
+      console.log("Car already exists in localStorage:", car);
+    }
+  } catch (error) {
+    // If there is an error while adding the car, handle it appropriately
+    console.error("Error adding car to localStorage:", error);
+  }
+};
