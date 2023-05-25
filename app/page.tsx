@@ -39,8 +39,8 @@ export default async function Home({ searchParams }: HomeProps) {
         {!isDataEmpty ? (
           <section className='flex flex-col w-full h-full'>
             <div className='grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14'>
-              {allCars?.map((car: CarProps) => (
-                <CarCard car={car} />
+              {allCars?.map((car, index) => (
+                <CarCard car={{ ...car, id: `car-${index}` }} />
               ))}
             </div>
 

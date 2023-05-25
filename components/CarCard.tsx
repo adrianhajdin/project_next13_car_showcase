@@ -3,13 +3,16 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import { CarProps } from "@types";
-import { calculateCarRent } from "@utils";
+import { addCarToLocalStorage, calculateCarRent } from "@utils";
 import CustomButton from "./CustomButton";
 import CarDetails from "./CarDetails";
+import { usePathname } from "next/navigation";
 
 // @ts-ignore
 const CarCard = ({ car }) => {
+  const pathName = usePathname();
+
+  const [isLiked, setIsLiked] = useState(false);
   const { city_mpg, year, make, model, transmission, drive, mpg } = car;
 
   let [isOpen, setIsOpen] = useState(false);
@@ -24,13 +27,35 @@ const CarCard = ({ car }) => {
     setIsOpen(true);
   }
 
+  function handleFavorites() {
+    setIsLiked(!isLiked);
+    addCarToLocalStorage(car);
+  }
+
   const carRent = calculateCarRent(city_mpg, year);
 
   return (
     <div className='group flex flex-col p-6 justify-center items-start text-black-400 bg-light-white-100 rounded-[24px] hover:shadow-md'>
-      <h2 className='text-[22px] leading-[26px] font-bold capitalize'>
-        {make} {model}
-      </h2>
+      <div className='w-full flex justify-between items-start gap-2'>
+        <h2 className='text-[22px] leading-[26px] font-bold capitalize'>
+          {make} {model}
+        </h2>
+
+        <Image
+          src={
+            pathName === "/my-favorites"
+              ? "/heart-filled.svg"
+              : !isLiked
+              ? "/heart-outline.svg"
+              : "/heart-filled.svg"
+          }
+          width={24}
+          height={24}
+          alt='heart'
+          className='object-contain cursor-pointer mt-0.5'
+          onClick={handleFavorites}
+        />
+      </div>
 
       <p className='flex mt-6 text-[32px] leading-[38px] font-extrabold'>
         <span className='self-start text-[14px] leading-[17px] font-semibold'>
