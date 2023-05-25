@@ -1,9 +1,15 @@
 import { Dialog, Transition } from "@headlessui/react";
+import { CarProps } from "@types";
 import Image from "next/image";
 import { Fragment } from "react";
 
-// @ts-ignore
-const CarDetails = ({ isOpen, closeModal, car }) => {
+interface CarDetailsProps {
+  isOpen: boolean;
+  closeModal: () => void;
+  car: CarProps;
+}
+
+const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
   const imaginApiKey = process.env.NEXT_PUBLIC_IMAGIN_API_KEY;
 
   return (
