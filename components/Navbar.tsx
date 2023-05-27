@@ -5,8 +5,8 @@ import CustomButton from "./CustomButton";
 
 const NavBar = () => {
   return (
-    <header className="w-full  absolute z-10">
-      <nav className="max-width flex-betweeb padding-x padding-y bg-transparent">
+    <header className="w-full absolute z-10">
+      <nav className="max-width flex-between padding-x padding-y bg-transparent">
         <Link href="/" className="flex-center">
           <Image
             src="/logo.svg"
