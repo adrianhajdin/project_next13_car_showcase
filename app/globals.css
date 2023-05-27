@@ -195,6 +195,6 @@
 }
 
 .searchbar__input {
-  @apply w-full h-[52px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none text-white-800 cursor-pointer;
+  @apply w-full h-[52px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none cursor-pointer;
 }
 /* END: searchbar styles */
