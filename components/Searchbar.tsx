@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
 import Image from "next/image";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import SearchManufacturer from "./SearchManufacturer";
@@ -54,15 +54,12 @@ const SearchBar = () => {
   };
 
   return (
-    <form
-      className="flex items-center justify-center max-sm:flex-col w-full relative mx-auto max-sm:gap-4 max-w-3xl"
-      onSubmit={handleSearch}
-    >
+    <form className="searchbar" onSubmit={handleSearch}>
       <SearchManufacturer
         manufacturer={manufacturer}
         setManuFacturer={setManuFacturer}
       />
-      <div className="flex-1 max-sm:w-full flex justify-start items-center relative">
+      <div className="searchbar__img">
         <Image
           src="/model-icon.png"
           width={25}
@@ -76,7 +73,7 @@ const SearchBar = () => {
           value={model}
           onChange={(e) => setModel(e.target.value)}
           placeholder="M8 sport..."
-          className="w-full h-[52px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none text-white-800 cursor-pointer"
+          className="searchbar__input"
         />
         <SearchButton otherClasses="sm:hidden" />
       </div>
