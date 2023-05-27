@@ -4,17 +4,16 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-import { SearchButtonProps } from "@types";
 import SearchManufacturer from "./SearchManufacturer";
 
-const SearchButton = ({ otherClasses, imgUrl, imgAlt }: SearchButtonProps) => (
-  <button type='submit' className={`-ml-3 z-10 ${otherClasses}`}>
+const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
+  <button type="submit" className={`-ml-3 z-10 ${otherClasses}`}>
     <Image
-      src={imgUrl || "/magnifying-glass.svg"}
-      alt={imgAlt || "magnifying glass"}
+      src={"/magnifying-glass.svg"}
+      alt={"magnifying glass"}
       width={40}
       height={40}
-      className='object-contain'
+      className="object-contain"
     />
   </button>
 );
@@ -56,32 +55,32 @@ const SearchBar = () => {
 
   return (
     <form
-      className='flex items-center justify-center max-sm:flex-col w-full relative mx-auto max-sm:gap-4 max-w-3xl'
+      className="flex items-center justify-center max-sm:flex-col w-full relative mx-auto max-sm:gap-4 max-w-3xl"
       onSubmit={handleSearch}
     >
       <SearchManufacturer
         manufacturer={manufacturer}
         setManuFacturer={setManuFacturer}
       />
-      <div className='flex-1 max-sm:w-full flex justify-start items-center relative'>
+      <div className="flex-1 max-sm:w-full flex justify-start items-center relative">
         <Image
-          src='/model-icon.png'
+          src="/model-icon.png"
           width={25}
           height={25}
-          className='absolute w-[25px] h-[25px] ml-4'
-          alt='car model'
+          className="absolute w-[25px] h-[25px] ml-4"
+          alt="car model"
         />
         <input
-          type='text'
-          name='model'
+          type="text"
+          name="model"
           value={model}
           onChange={(e) => setModel(e.target.value)}
-          placeholder='M8 sport...'
-          className='w-full h-[52px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none text-white-800 cursor-pointer'
+          placeholder="M8 sport..."
+          className="w-full h-[52px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none text-white-800 cursor-pointer"
         />
-        <SearchButton otherClasses='sm:hidden' />
+        <SearchButton otherClasses="sm:hidden" />
       </div>
-      <SearchButton otherClasses='max-sm:hidden' />
+      <SearchButton otherClasses="max-sm:hidden" />
     </form>
   );
 };
