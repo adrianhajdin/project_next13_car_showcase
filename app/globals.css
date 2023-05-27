@@ -23,6 +23,10 @@
 .padding-y {
   @apply py-4;
 }
+
+.flex-center {
+  @apply flex  items-center justify-center;
+}
 /* END: General styles */
 
 /* START: Hero styles */
@@ -118,3 +122,17 @@
   @apply hidden group-hover:flex absolute bottom-0 w-full z-10;
 }
 /* END: Car Card styles */
+
+/* START: Car Details styles */
+.car-details__dialog-panel {
+  @apply relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5;
+}
+
+.car-details__close-btn {
+  @apply absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full;
+}
+
+.car-details__main-image {
+  @apply relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg;
+}
+/* END: Car Details styles */
