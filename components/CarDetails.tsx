@@ -4,6 +4,24 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CarProps } from "@types";
 
+const imaginApiKey = process.env.NEXT_PUBLIC_IMAGIN_API_KEY;
+
+const CarDetailsImage = ({ car, angle }: { car: CarProps; angle: string }) => (
+  <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
+    <Image
+      src={`https://cdn.imagin.studio/getimage?customer=${imaginApiKey}&make=${
+        car.make
+      }&modelFamily=${
+        car.model.split(" ")[0]
+      }&zoomType=fullscreen&zoomLevel=30&modelYear=${car.year}&angle=${angle}`}
+      alt="car model"
+      fill
+      priority
+      className="object-contain"
+    />
+  </div>
+);
+
 interface CarDetailsProps {
   isOpen: boolean;
   closeModal: () => void;
@@ -11,8 +29,6 @@ interface CarDetailsProps {
 }
 
 const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
-  const imaginApiKey = process.env.NEXT_PUBLIC_IMAGIN_API_KEY;
-
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -30,7 +46,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <div className="flex-center min-h-full p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -40,10 +56,10 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
+                <Dialog.Panel className="car-details__dialog-panel">
                   <button
                     type="button"
-                    className="absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full"
+                    className="car-details__close-btn"
                     onClick={closeModal}
                   >
                     <Image
@@ -56,7 +72,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                   </button>
 
                   <div className="flex-1 flex flex-col gap-3">
-                    <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
+                    <div className="car-details__main-image">
                       <Image
                         src={`https://cdn.imagin.studio/getimage?customer=${imaginApiKey}&make=${
                           car.make
@@ -71,47 +87,9 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                     </div>
 
                     <div className="flex gap-3">
-                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-                        <Image
-                          src={`https://cdn.imagin.studio/getimage?customer=${imaginApiKey}&make=${
-                            car.make
-                          }&modelFamily=${
-                            car.model.split(" ")[0]
-                          }&zoomType=fullscreen&zoomLevel=30&modelYear=${
-                            car.year
-                          }&angle=29`}
-                          alt="car model"
-                          fill
-                          priority
-                          className="object-contain"
-                        />
-                      </div>
-                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-                        <Image
-                          src={`https://cdn.imagin.studio/getimage?customer=${imaginApiKey}&make=${
-                            car.make
-                          }&modelFamily=${
-                            car.model.split(" ")[0]
-                          }&zoomType=fullscreen&modelYear=${car.year}&angle=33`}
-                          alt="car model"
-                          fill
-                          priority
-                          className="object-contain"
-                        />
-                      </div>
-                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-                        <Image
-                          src={`https://cdn.imagin.studio/getimage?customer=${imaginApiKey}&make=${
-                            car.make
-                          }&modelFamily=${
-                            car.model.split(" ")[0]
-                          }&zoomType=fullscreen&modelYear=${car.year}&angle=13`}
-                          alt="car model"
-                          fill
-                          priority
-                          className="object-contain"
-                        />
-                      </div>
+                      <CarDetailsImage car={car} angle="29" />
+                      <CarDetailsImage car={car} angle="33" />
+                      <CarDetailsImage car={car} angle="13" />
                     </div>
                   </div>
 
