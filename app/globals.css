@@ -11,10 +11,21 @@
   font-family: "Manrope", sans-serif;
 }
 
+/* START: General styles */
+.max-width {
+  @apply max-w-[1440px] mx-auto;
+}
+
 .padding-x {
   @apply sm:px-16 px-6;
 }
 
+.padding-y {
+  @apply py-4;
+}
+/* END: General styles */
+
+/* START: Hero styles */
 .hero {
   @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
 }
@@ -38,3 +49,26 @@
 .hero__image-overlay {
   @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
 }
+/* END: Hero styles */
+
+/* START: Home styles */
+.home__content {
+  @apply flex max-md:flex-col md:justify-between max-md:items-start w-full mt-16;
+}
+
+.home__text-container {
+  @apply flex flex-col items-start justify-start gap-y-2.5 text-black-100;
+}
+
+.home__filter-container {
+  @apply flex justify-start flex-wrap items-center gap-2 max-md:pt-10;
+}
+
+.home__cars-wrapper {
+  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14;
+}
+
+.home__error-container {
+  @apply mt-16 flex justify-center items-center flex-col gap-2;
+}
+/* END: Home styles */

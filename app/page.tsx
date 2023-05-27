@@ -15,30 +15,27 @@ export default async function Home({ searchParams }: HomeProps) {
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
   return (
-    <main className='overflow-hidden'>
+    <main className="overflow-hidden">
       <Hero />
 
-      <div
-        className='mt-12 sm:px-16 px-6 py-4 max-w-[1440px] mx-auto'
-        id='discover'
-      >
+      <div className="mt-12 padding-x padding-y max-width" id="discover">
         <SearchBar />
 
-        <div className='flex max-md:flex-col md:justify-between max-md:items-start w-full mt-16'>
-          <div className='flex flex-col items-start justify-start gap-y-2.5 text-black-100'>
-            <h1 className='text-4xl font-extrabold'>Car Catalogue</h1>
+        <div className="home__content">
+          <div className="home__text-container">
+            <h1 className="text-4xl font-extrabold">Car Catalogue</h1>
             <p>Explore out cars you might like</p>
           </div>
 
-          <div className='flex justify-start flex-wrap items-center gap-2 max-md:pt-10'>
-            <CustomFilter title='fuel' options={fuels} />
-            <CustomFilter title='year' options={yearsOfProduction} />
+          <div className="home__filter-container">
+            <CustomFilter title="fuel" options={fuels} />
+            <CustomFilter title="year" options={yearsOfProduction} />
           </div>
         </div>
 
         {!isDataEmpty ? (
-          <section className='flex flex-col w-full h-full'>
-            <div className='grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14'>
+          <section>
+            <div className="home__cars-wrapper">
               {allCars?.map((car, index) => (
                 <CarCard car={{ ...car, id: `car-${index}` }} />
               ))}
@@ -50,8 +47,8 @@ export default async function Home({ searchParams }: HomeProps) {
             />
           </section>
         ) : (
-          <div className='mt-16 flex justify-center items-center flex-col gap-2'>
-            <h2 className='text-black text-xl font-bold'>Oops, no results</h2>
+          <div className="home__error-container">
+            <h2 className="text-black text-xl font-bold">Oops, no results</h2>
             <p>{allCars?.message}</p>
           </div>
         )}
