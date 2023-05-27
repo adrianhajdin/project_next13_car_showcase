@@ -198,3 +198,20 @@
   @apply w-full h-[52px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none cursor-pointer;
 }
 /* END: searchbar styles */
+
+/* START: search manufacturer styles */
+.search-manufacturere {
+  @apply flex-1 max-sm:w-full flex justify-start items-center;
+}
+
+.search-manufacturere__input {
+  @apply w-full h-[52px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-light-white outline-none cursor-pointer;
+}
+
+.search-manufacturere__options {
+  @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
+}
+
+.search-manufacturere__option {
+  @apply cursor-default select-none py-2 pl-10 pr-4;
+}
