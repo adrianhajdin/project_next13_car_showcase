@@ -25,7 +25,11 @@
 }
 
 .flex-center {
-  @apply flex  items-center justify-center;
+  @apply flex items-center justify-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
 }
 
 .custom-btn {
