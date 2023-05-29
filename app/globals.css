@@ -64,16 +64,17 @@
 /* END: Hero styles */
 
 /* START: Home styles */
-.home__content {
-  @apply flex max-md:flex-col md:justify-between max-md:items-start w-full mt-16;
-}
 
 .home__text-container {
   @apply flex flex-col items-start justify-start gap-y-2.5 text-black-100;
 }
 
+.home__filters {
+  @apply mt-12 w-full flex-between items-center flex-wrap gap-5;
+}
+
 .home__filter-container {
-  @apply flex justify-start flex-wrap items-center gap-2 max-md:pt-10;
+  @apply flex justify-start flex-wrap items-center gap-2;
 }
 
 .home__cars-wrapper {
@@ -187,15 +188,15 @@
 
 /* START: searchbar styles */
 .searchbar {
-  @apply flex items-center justify-center max-sm:flex-col w-full relative mx-auto max-sm:gap-4 max-w-3xl;
+  @apply flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl;
 }
 
-.searchbar__img {
+.searchbar__item {
   @apply flex-1 max-sm:w-full flex justify-start items-center relative;
 }
 
 .searchbar__input {
-  @apply w-full h-[52px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none cursor-pointer;
+  @apply w-full h-[48px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none cursor-pointer text-sm;
 }
 /* END: searchbar styles */
 
@@ -205,7 +206,7 @@
 }
 
 .search-manufacturer__input {
-  @apply w-full h-[52px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-light-white outline-none cursor-pointer;
+  @apply w-full h-[48px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-light-white outline-none cursor-pointer text-sm;
 }
 
 .search-manufacturer__options {
