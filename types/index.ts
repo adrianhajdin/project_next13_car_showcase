@@ -1,7 +1,6 @@
 import { MouseEventHandler } from "react";
 
 export interface CarProps {
-  id?: string;
   city_mpg: number;
   class: string;
   combination_mpg: number;
@@ -66,10 +65,4 @@ export interface ShowMoreProps {
 export interface SearchManuFacturerProps {
   manufacturer: string;
   setManuFacturer: (manufacturer: string) => void;
-}
-
-export interface SearchButtonProps {
-  otherClasses?: string;
-  imgUrl?: string;
-  imgAlt?: string;
 }

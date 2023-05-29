@@ -15,14 +15,14 @@ interface CarCardProps {
 const CarCard = ({ car }: CarCardProps) => {
   const { city_mpg, year, make, model, transmission, drive } = car;
 
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const carRent = calculateCarRent(city_mpg, year);
 
   return (
-    <div className='group flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl'>
-      <div className='w-full flex justify-between items-start gap-2'>
-        <h2 className='text-[22px] leading-[26px] font-bold capitalize'>
+    <div className="car-card group">
+      <div className="car-card__content">
+        <h2 className="car-card__content-title">
           {make} {model}
         </h2>
       </div>
@@ -45,17 +45,17 @@ const CarCard = ({ car }: CarCardProps) => {
               {transmission === "a" ? "Automatic" : "Manual"}
             </p>
           </div>
-          <div className='flex flex-col justify-center items-center gap-2'>
-            <Image src='/tire.svg' width={20} height={20} alt='seat' />
-            <p className='text-[14px] leading-[17px]'>{drive.toUpperCase()}</p>
+          <div className="car-card__icon">
+            <Image src="/tire.svg" width={20} height={20} alt="seat" />
+            <p className="car-card__icon-text">{drive.toUpperCase()}</p>
           </div>
-          <div className='flex flex-col justify-center items-center gap-2'>
-            <Image src='/gas.svg' width={20} height={20} alt='seat' />
-            <p className='text-[14px] leading-[17px]'>{city_mpg} MPG</p>
+          <div className="car-card__icon">
+            <Image src="/gas.svg" width={20} height={20} alt="seat" />
+            <p className="car-card__icon-text">{city_mpg} MPG</p>
           </div>
         </div>
 
-        <div className='hidden group-hover:flex absolute bottom-0 w-full z-10'>
+        <div className="car-card__btn-container">
           <CustomButton
             title='View More'
             containerStyles='w-full py-[16px] rounded-full bg-primary-blue'

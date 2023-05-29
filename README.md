@@ -5,43 +5,10 @@ A car showcase application using Next.js 13
 ### Things to Provide
 
 - assets
-- tailwind config
-  ```javascript
-  /** @type {import('tailwindcss').Config} */
-  module.exports = {
-    content: [
-      "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-      "./components/**/*.{js,ts,jsx,tsx,mdx}",
-      "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    ],
-    theme: {
-      extend: {
-        fontFamily: {
-          inter: ["Inter", "sans-serif"],
-        },
-        colors: {
-          "white-600": "#fcfcfc",
-          "black-100": "#bbbbbb",
-          "black-300": "#9195a1",
-          "black-100": "#2C2E33",
-          "primary-purple": {
-            DEFAULT: "#3b3c98",
-            100: "rgba(59, 60, 152, 0.1)",
-          },
-          "secondary-orange": "#f79761",
-          "light-white": {
-            DEFAULT: "rgba(59,60,152,0.03)",
-            100: "rgba(59,60,152,0.02)",
-          },
-          grey: "#747A88",
-        },
-      },
-    },
-    plugins: [],
-  };
-  ```
-- globals.css
+- tailwind config - contains some configuration related to fontFamily, colors, etc.
+- globals.css - contains custom tailwind classes created using the [@apply directive](https://tailwindcss.com/docs/functions-and-directives#apply)
 - favicon
+- constants - contains fuel, years, manufacturer data
 
 ### Setup
 
@@ -57,6 +24,27 @@ npx create-next-app@latest
 - Would you like to use Tailwind CSS with this project? **_Yes_**
 - Would you like to use the `src/ directory` with this project? **_No_**
 - What import alias would you like configured? **_@\*_**
+
+### Packages
+
+We're using the [headlessui](https://headlessui.com/) to create combobox and dropdowns. To download the package, 
+```bash
+npm install @headlessui/react
+```
+
+### APIs
+
+We're using two APIs:
+1. Rapid API
+   - Doc Link - [Cars API by API Ninjas](https://rapidapi.com/apininjas/api/cars-by-api-ninjas)
+3. Imagin Studio
+   - Sign up Link - [Imagin SignUp](https://www.imagin.studio/subscriptions/pricing)
+   - Doc Link - [Imagin Docs](https://docs.imagin.studio/)
+     From the Menu, you can select ["CDN Data Points"](https://docs.imagin.studio/cdnDatapoints) to see all the params the API accepts.
+   
+**⚠️ Issue with Imagin - It doesn't seem to allow creating an account using normal email address. For it to work, it has to be a business account. I tried [TempMail](https://temp-mail.org/en/) and it works. But no normal gmail accounts are working.**   
+   
+
 
 ### Things to know
 

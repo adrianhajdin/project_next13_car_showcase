@@ -10,8 +10,9 @@ import { updateSearchParams } from "@utils";
 
 export default function CustomFilter({ title, options }: CustomFilterProps) {
   const router = useRouter();
-  const [selected, setSelected] = useState(options[0]);
+  const [selected, setSelected] = useState(options[0]); // State for storing the selected option
 
+  // update the URL search parameters and navigate to the new URL
   const handleUpdateParams = (e: { title: string; value: string }) => {
     const newPathName = updateSearchParams(title, e.value.toLowerCase());
 
@@ -23,22 +24,25 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
       <Listbox
         value={selected}
         onChange={(e) => {
-          setSelected(e);
-          handleUpdateParams(e);
+          setSelected(e); // Update the selected option in state
+          handleUpdateParams(e); // Update the URL search parameters and navigate to the new URL
         }}
       >
         <div className='relative w-fit z-10'>
-          <Listbox.Button className='relative w-full min-w-[127px] flex justify-between items-center cursor-default rounded-lg bg-white py-2 px-3 text-left shadow-md sm:text-sm border'>
+          {/* Button for the listbox */}
+          <Listbox.Button className='custom-filter__btn'>
             <span className='block truncate'>{selected.title}</span>
             <Image src='/chevron-up-down.svg' width={20} height={20} className='ml-4 object-contain' alt='chevron_up-down' />
           </Listbox.Button>
+          {/* Transition for displaying the options */}
           <Transition
-            as={Fragment}
+            as={Fragment} // group multiple elements without introducing an additional DOM node i.e., <></>
             leave='transition ease-in duration-100'
             leaveFrom='opacity-100'
             leaveTo='opacity-0'
           >
-            <Listbox.Options className='absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
+            <Listbox.Options className='custom-filter__options'>
+              {/* Map over the options and display them as listbox options */}
               {options.map((option) => (
                 <Listbox.Option
                   key={option.title}
