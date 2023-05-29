@@ -14,6 +14,7 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
 
   const handleUpdateParams = (e: { title: string; value: string }) => {
     const newPathName = updateSearchParams(title, e.value.toLowerCase());
+
     router.push(newPathName);
   };
 
@@ -29,13 +30,7 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
         <div className='relative w-fit z-10'>
           <Listbox.Button className='relative w-full min-w-[127px] flex justify-between items-center cursor-default rounded-lg bg-white py-2 px-3 text-left shadow-md sm:text-sm border'>
             <span className='block truncate'>{selected.title}</span>
-            <Image
-              src='/chevron-up-down.svg'
-              width={20}
-              height={20}
-              className='ml-4 object-contain'
-              alt='chevron_up-down'
-            />
+            <Image src='/chevron-up-down.svg' width={20} height={20} className='ml-4 object-contain' alt='chevron_up-down' />
           </Listbox.Button>
           <Transition
             as={Fragment}
@@ -56,11 +51,7 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
                 >
                   {({ selected }) => (
                     <>
-                      <span
-                        className={`block truncate ${
-                          selected ? "font-medium" : "font-normal"
-                        }`}
-                      >
+                      <span className={`block truncate ${selected ? "font-medium" : "font-normal"}`} >
                         {option.title}
                       </span>
                     </>
