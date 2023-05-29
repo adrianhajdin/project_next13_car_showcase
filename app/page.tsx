@@ -68,8 +68,8 @@ export default function Home() {
         {allCars.length > 0 ? (
           <section>
             <div className='home__cars-wrapper'>
-              {allCars?.map((car) => (
-                <CarCard car={car} />
+              {allCars?.map((car, index) => (
+                <CarCard key={`car-${index}`} car={car} />
               ))}
             </div>
 
