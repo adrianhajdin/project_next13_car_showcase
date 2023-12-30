@@ -46,13 +46,8 @@ If you're getting started and need assistance or face any bugs, join our active 
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
-- Node.js
-- React.js
-- Three.js
-- React Three Fiber
-- React Three Drei
-- Email JS
-- Vite
+- Next.js
+- TypeScript
 - Tailwind CSS
 
 ## <a name="features">🔋 Features</a>
